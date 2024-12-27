@@ -1,10 +1,9 @@
-# frozen_string_literal: true
-
 module Followability
   class Relationship < ActiveRecord::Base
     STATUSES = %i[requested blocked following].freeze
 
-    enum status: STATUSES
+    # Updated enum definition with integer mappings
+    enum status: { requested: 0, blocked: 1, following: 2 }
 
     validates :status, presence: true
 
