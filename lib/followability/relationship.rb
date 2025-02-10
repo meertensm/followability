@@ -2,8 +2,8 @@ module Followability
   class Relationship < ActiveRecord::Base
     STATUSES = %i[requested blocked following].freeze
 
-    # Updated enum definition with integer mappings
-    enum status: { requested: 0, blocked: 1, following: 2 }
+    # Rails 8 requires :field_name, hash syntax
+    enum :status, requested: 0, blocked: 1, following: 2
 
     validates :status, presence: true
 
